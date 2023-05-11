@@ -3,6 +3,11 @@ import ReactDOM from 'react-dom/client';
 
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
+import { ThemeProvider } from 'styled-components';
+
+import defaultTheme from './styles/defaultTheme';
+import GlobalStyle from './styles/GloablStyle';
+
 import routes from './routes';
 
 const router = createBrowserRouter(routes);
@@ -18,7 +23,10 @@ export default function main() {
 
   root.render(
     <React.StrictMode>
-      <RouterProvider router={router} />
+      <ThemeProvider theme={defaultTheme}>
+        <GlobalStyle />
+        <RouterProvider router={router} />
+      </ThemeProvider>
     </React.StrictMode>,
   );
 }
