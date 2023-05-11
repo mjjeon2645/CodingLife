@@ -1,9 +1,9 @@
 module.exports = {
-	env: {
-		browser: true,
-		es2021: true,
-		jest: true,
-	},
+  env: {
+    browser: true,
+    es2021: true,
+    jest: true,
+  },
   extends: [
     'airbnb',
     'plugin:@typescript-eslint/recommended',
@@ -17,7 +17,7 @@ module.exports = {
   },
   plugins: [
     'react',
-		'react-hooks',
+    'react-hooks',
     '@typescript-eslint',
   ],
   settings: {

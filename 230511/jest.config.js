@@ -1,4 +1,3 @@
-// 변경 후
 module.exports = {
   testEnvironment: 'jsdom',
   setupFilesAfterEnv: [
