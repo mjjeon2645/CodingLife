@@ -1,5 +1,3 @@
-// src/mocks/handlers.ts 예시
-
 /* eslint-disable import/no-extraneous-dependencies */
 import { rest } from 'msw';
 

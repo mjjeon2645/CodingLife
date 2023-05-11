@@ -8,6 +8,8 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
 import { ThemeProvider } from 'styled-components';
 
+import { Reset } from 'styled-reset';
+
 import defaultTheme from './styles/defaultTheme';
 import GlobalStyle from './styles/GloablStyle';
 
@@ -27,6 +29,7 @@ export default function main() {
   root.render((
     <React.StrictMode>
       <ThemeProvider theme={defaultTheme}>
+        <Reset />
         <GlobalStyle />
         <RouterProvider router={router} />
       </ThemeProvider>
