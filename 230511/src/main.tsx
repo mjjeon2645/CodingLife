@@ -12,6 +12,7 @@ import defaultTheme from './styles/defaultTheme';
 import GlobalStyle from './styles/GloablStyle';
 
 import routes from './routes';
+import Header from './components/Header';
 
 const router = createBrowserRouter(routes);
 
