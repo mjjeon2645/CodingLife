@@ -12,7 +12,6 @@ import defaultTheme from './styles/defaultTheme';
 import GlobalStyle from './styles/GloablStyle';
 
 import routes from './routes';
-import Header from './components/Header';
 
 const router = createBrowserRouter(routes);
 
@@ -25,14 +24,14 @@ export default function main() {
 
   const root = ReactDOM.createRoot(element);
 
-  root.render(
+  root.render((
     <React.StrictMode>
       <ThemeProvider theme={defaultTheme}>
         <GlobalStyle />
         <RouterProvider router={router} />
       </ThemeProvider>
-    </React.StrictMode>,
-  );
+    </React.StrictMode>
+  ));
 }
 
 main();
