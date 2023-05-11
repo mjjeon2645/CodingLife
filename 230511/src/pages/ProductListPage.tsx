@@ -1,3 +1,4 @@
+import Products from '../components/product-list/Products';
 import useFetchProducts from '../hooks/useFetchProducts';
 
 export default function ProductListPage() {
@@ -9,7 +10,7 @@ export default function ProductListPage() {
   return (
     <div>
       <h2>Products List Page</h2>
-      {JSON.stringify(products)}
+      <Products products={products} />
     </div>
   );
 }
