@@ -2,6 +2,8 @@ import { styled } from 'styled-components';
 
 import { ProductSummary } from '../../types';
 
+import numberFormat from '../../utils/numberFormat';
+
 const Thumbnail = styled.img.attrs({
   alt: 'Thumbnail',
 })`
@@ -20,7 +22,7 @@ export default function Product({ product }: ProductProps) {
       <Thumbnail src={product.thumbnail.url} />
       <div>{product.name}</div>
       <div>
-        {product.price}
+        {numberFormat(product.price)}
         원
       </div>
     </div>

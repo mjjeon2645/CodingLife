@@ -1,4 +1,5 @@
 import Products from '../components/product-list/Products';
+
 import useFetchProducts from '../hooks/useFetchProducts';
 
 export default function ProductListPage() {

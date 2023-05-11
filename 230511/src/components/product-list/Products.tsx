@@ -2,9 +2,9 @@ import styled from 'styled-components';
 
 import { Link } from 'react-router-dom';
 
-import { ProductSummary } from '../../types';
-
 import Product from './Product';
+
+import { ProductSummary } from '../../types';
 
 const Container = styled.div`
   ul {
