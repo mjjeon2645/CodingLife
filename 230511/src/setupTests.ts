@@ -1,3 +1,6 @@
+/* eslint-disable import/no-extraneous-dependencies */
+import 'reflect-metadata';
+
 Object.defineProperty(window, 'matchMedia', {
   writable: true,
   value: jest.fn().mockImplementation((query) => ({

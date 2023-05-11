@@ -1,5 +1,8 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+
+import 'reflect-metadata';
 
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
