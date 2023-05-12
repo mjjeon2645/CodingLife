@@ -2,6 +2,8 @@ import styled from 'styled-components';
 
 import { Link } from 'react-router-dom';
 
+import useFetchCategories from '../hooks/useFetchCategories';
+
 const Container = styled.header`
   margin-bottom: 2rem;
 
@@ -27,11 +29,34 @@ const Container = styled.header`
 `;
 
 export default function Header() {
+  const { categories } = useFetchCategories();
+
   return (
     <Container>
       <h1>Shop</h1>
       <nav>
-        <Link to="/products">Products</Link>
+        <ul>
+          <li>
+            <Link to="/products">Products</Link>
+          </li>
+          <li>
+            <Link to="/products">Products</Link>
+            {!!categories.length && (
+              <ul>
+                {categories.map((category) => (
+                  <li key={category.id}>
+                    <Link to={`/products?categoryId=${category.id}`}>
+                      {category.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </li>
+          <li>
+            <Link to="/cart">Cart</Link>
+          </li>
+        </ul>
       </nav>
     </Container>
   );
