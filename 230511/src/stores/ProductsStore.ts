@@ -11,10 +11,12 @@ import { ProductSummary } from '../types';
 export default class ProductsStore {
   products: ProductSummary[] = [];
 
-  async fetchProducts() {
+  async fetchProducts({ categoryId }: {
+    categoryId?: string;
+  }) {
     this.setProducts([]);
 
-    const products = await apiService.fetchProducts();
+    const products = await apiService.fetchProducts({ categoryId });
 
     this.setProducts(products);
   }
