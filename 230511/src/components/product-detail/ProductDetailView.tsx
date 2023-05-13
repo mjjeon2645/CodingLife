@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 import Images from './Images';
+import AddToCartForm from './form/AddToCartForm';
 import Description from './Description';
 
 import useProductDetailStore from '../../hooks/useProductDetailStore';
@@ -17,10 +18,6 @@ const Container = styled.div`
     width: 60%;
   }
 `;
-
-function AddToCartForm() {
-  return null;
-}
 
 export default function ProductDetailView() {
   const [{ product }] = useProductDetailStore();
