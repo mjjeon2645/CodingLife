@@ -8,7 +8,7 @@ import { ProductDetail, nullProductDetail } from '../types';
 
 @singleton()
 @Store()
-export default class ProductStore {
+export default class ProductDetailStore {
   product: ProductDetail = nullProductDetail;
 
   loading = true;

@@ -1,10 +1,8 @@
 import { useParams } from 'react-router-dom';
 
-import useFetchProduct from '../hooks/useFetchProduct';
+import ProductDetail from '../components/product-detail/ProductDetail';
 
-function ProductDetail() {
-  return null;
-}
+import useFetchProduct from '../hooks/useFetchProduct';
 
 export default function ProductDetailPage() {
   const params = useParams();
