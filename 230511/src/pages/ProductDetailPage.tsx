@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 
-import ProductDetail from '../components/product-detail/ProductDetail';
+import ProductDetailView from '../components/product-detail/ProductDetailView';
 
 import useFetchProduct from '../hooks/useFetchProduct';
 
@@ -24,6 +24,6 @@ export default function ProductDetailPage() {
   }
 
   return (
-    <ProductDetail />
+    <ProductDetailView />
   );
 }
