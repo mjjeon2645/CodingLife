@@ -1,29 +1,20 @@
-// import { screen } from '@testing-library/react';
-
 import { container as iocContainer } from 'tsyringe';
 
-import fixtures from '../../../../fixtures';
+import { render } from '../../../testHelpers';
 
 import Price from './Price';
-
-import { render } from '../../../testHelpers';
 
 import ProductFormStore from '../../../stores/ProductFormStore';
 
 import numberFormat from '../../../utils/numberFormat';
 
+import fixtures from '../../../../fixtures';
+
 const [product] = fixtures.products;
-// const { options } = product;
 
 jest.mock('../../../hooks/useProductDetailStore', () => () => [{
   product,
 }]);
-
-// jest.mock('../../../hooks/useProductFormStore', () => () => [{
-//   options,
-//   selectedOprionItems: options.map((i) => i.items[0]),
-//   quantity: 2,
-// }]);
 
 describe('Price', () => {
   beforeEach(() => {
@@ -31,6 +22,7 @@ describe('Price', () => {
 
     const productFormStore = iocContainer.resolve(ProductFormStore);
 
+    productFormStore.setProduct(product);
     productFormStore.changeQuantity(quantity);
   });
   it('renders price as formatted number', () => {
