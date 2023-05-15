@@ -57,6 +57,19 @@ export default class ProductFormStore {
   }
 
   @Action()
+  changeOptionItem({ optionId, optionItemId }: {
+    optionId: string;
+    optionItemId: string;
+  }) {
+    this.selectedOptionItems = this.product.options.map((option, index) => {
+      const item = this.selectedOptionItems[index];
+      return option.id !== optionId
+        ? item
+        : option.items.find((i) => i.id === optionItemId) ?? item;
+    });
+  }
+
+  @Action()
   resetDone() {
     this.done = false;
   }
