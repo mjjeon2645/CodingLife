@@ -9,7 +9,7 @@ module.exports = {
         parser: {
           syntax: 'typescript',
           jsx: true,
-          // decorators: true,
+          decorators: true,
         },
         transform: {
           react: {
