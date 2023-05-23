@@ -1,10 +1,9 @@
 /* eslint-disable import/prefer-default-export */
 
-/* eslint-disable import/no-extraneous-dependencies */
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { render as originalRender } from '@testing-library/react';
 
 import React from 'react';
-
-import { render as originalRender } from '@testing-library/react';
 
 import { MemoryRouter } from 'react-router-dom';
 

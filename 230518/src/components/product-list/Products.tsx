@@ -1,6 +1,6 @@
-import styled from 'styled-components';
-
 import { Link } from 'react-router-dom';
+
+import styled from 'styled-components';
 
 import Product from './Product';
 
@@ -13,7 +13,7 @@ const Container = styled.div`
   }
 
   li {
-    width: 20%;
+    display: block;
     padding: 1rem;
   }
 
@@ -27,11 +27,7 @@ type ProductsProps = {
   products: ProductSummary[];
 }
 
-export default function Products({ products }: ProductsProps) {
-  if (!products.length) {
-    return null;
-  }
-
+export default function Products({ products }:ProductsProps) {
   return (
     <Container>
       <ul>

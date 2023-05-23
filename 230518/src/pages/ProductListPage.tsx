@@ -13,7 +13,7 @@ export default function ProductListPage() {
 
   return (
     <div>
-      <h2>Products List Page</h2>
+      <h2> Product List Page</h2>
       <Products products={products} />
     </div>
   );

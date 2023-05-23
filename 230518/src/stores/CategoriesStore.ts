@@ -11,6 +11,7 @@ import { Category } from '../types';
 export default class CategoriesStore {
   categories: Category[] = [];
 
+  @Action()
   async fetchCategories() {
     this.setCategories([]);
 

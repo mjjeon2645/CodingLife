@@ -36,6 +36,16 @@ export type ProductDetail = {
   description: string;
 }
 
+export const nullProductDetail: ProductDetail = {
+  id: '',
+  category: { id: '', name: '' },
+  images: [],
+  name: '',
+  price: 0,
+  options: [],
+  description: '',
+};
+
 export type OrderOptionItem = {
   name: string;
 };
@@ -61,13 +71,3 @@ export type Cart = {
   lineItems: LineItem[];
   totalPrice: number;
 }
-
-export const nullProductDetail: ProductDetail = {
-  id: '',
-  category: { id: '', name: '' },
-  images: [],
-  name: '',
-  price: 0,
-  options: [],
-  description: '',
-};

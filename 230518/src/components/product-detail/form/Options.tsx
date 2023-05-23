@@ -2,7 +2,7 @@ import Option from './Option';
 
 import useProductFormStore from '../../../hooks/useProductFormStore';
 
-import { ChangeFunction } from './type';
+import { ChangeFunction } from './types';
 
 export default function Options() {
   const [{ product, selectedOptionItems }, store] = useProductFormStore();

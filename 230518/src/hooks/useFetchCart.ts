@@ -1,8 +1,8 @@
+import { useEffect } from 'react';
+
 import { container } from 'tsyringe';
 
 import { useStore } from 'usestore-ts';
-
-import { useEffectOnce } from 'usehooks-ts';
 
 import CartStore from '../stores/CartStore';
 
@@ -11,10 +11,9 @@ export default function useFetchCart() {
 
   const [{ cart }] = useStore(store);
 
-  useEffectOnce(() => {
+  useEffect(() => {
     store.fetchCart();
-  });
-  return {
-    cart,
-  };
+  }, [store]);
+
+  return { cart };
 }

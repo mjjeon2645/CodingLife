@@ -1,7 +1,12 @@
+import { Link, useNavigate } from 'react-router-dom';
+
 import styled from 'styled-components';
 
-import { Link } from 'react-router-dom';
+import Button from './ui/Button';
 
+import { apiService } from '../services/ApiService';
+
+import useAccessToken from '../hooks/useAccessToken';
 import useFetchCategories from '../hooks/useFetchCategories';
 
 const Container = styled.header`
@@ -29,7 +34,17 @@ const Container = styled.header`
 `;
 
 export default function Header() {
+  const { accessToken, setAccessToken } = useAccessToken();
+
   const { categories } = useFetchCategories();
+
+  const navigate = useNavigate();
+
+  const handleClickLogout = async () => {
+    await apiService.logout();
+    setAccessToken('');
+    navigate('/');
+  };
 
   return (
     <Container>
@@ -37,7 +52,7 @@ export default function Header() {
       <nav>
         <ul>
           <li>
-            <Link to="/products">Products</Link>
+            <Link to="/">Home</Link>
           </li>
           <li>
             <Link to="/products">Products</Link>
@@ -53,9 +68,22 @@ export default function Header() {
               </ul>
             )}
           </li>
-          <li>
-            <Link to="/cart">Cart</Link>
-          </li>
+          {accessToken ? (
+            <>
+              <li>
+                <Link to="/cart">Cart</Link>
+              </li>
+              <li>
+                <Button type="button" onClick={handleClickLogout}>
+                  로그아웃
+                </Button>
+              </li>
+            </>
+          ) : (
+            <li>
+              <Link to="/login">로그인</Link>
+            </li>
+          )}
         </ul>
       </nav>
     </Container>

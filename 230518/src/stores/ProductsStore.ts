@@ -11,6 +11,7 @@ import { ProductSummary } from '../types';
 export default class ProductsStore {
   products: ProductSummary[] = [];
 
+  @Action()
   async fetchProducts({ categoryId }: {
     categoryId?: string;
   }) {

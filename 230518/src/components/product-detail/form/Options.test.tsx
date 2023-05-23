@@ -1,13 +1,17 @@
-import { fireEvent, screen } from '@testing-library/react';
-import fixtures from '../../../../fixtures';
-import { render } from '../../../testHelpers';
+import { screen, fireEvent } from '@testing-library/react';
+
+import { render } from '../../../test-helpers';
+
 import Options from './Options';
 
+import fixtures from '../../../../fixtures';
+
 const [product] = fixtures.products;
+const { options } = product;
 
 const store = {
   product,
-  selectedOptionItems: product.options.map((i) => i.items[0]),
+  selectedOptionItems: options.map((i) => i.items[0]),
   quantity: 1,
   changeOptionItem: jest.fn(),
 };
@@ -24,14 +28,14 @@ describe('Options', () => {
   it('renders comboboxes', () => {
     render(<Options />);
 
-    expect(screen.getAllByRole('combobox')).toHaveLength(product.options.length);
+    expect(screen.getAllByRole('combobox')).toHaveLength(options.length);
   });
 
-  context('when selection is changed', () => {
-    it('calls "changeOptionItem" action', () => {
+  context('옵션이 바뀌면', () => {
+    it('changeOptionItem 함수가 호출되고 선택한 옵션이 화면에 나온다', () => {
       render(<Options />);
 
-      const [option] = product.options;
+      const [option] = options;
       const [, item] = option.items;
 
       const [combobox] = screen.getAllByRole('combobox');

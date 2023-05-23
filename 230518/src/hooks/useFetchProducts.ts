@@ -17,7 +17,5 @@ export default function useFetchProducts({ categoryId }: {
     store.fetchProducts({ categoryId });
   }, [store, categoryId]);
 
-  return {
-    products,
-  };
+  return { products };
 }

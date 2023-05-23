@@ -7,9 +7,9 @@ import useFetchProduct from '../hooks/useFetchProduct';
 export default function ProductDetailPage() {
   const params = useParams();
 
-  const { loading, error } = useFetchProduct({
-    productId: String(params.id),
-  });
+  const productId = String(params.id);
+
+  const { loading, error } = useFetchProduct({ productId });
 
   if (loading) {
     return (
@@ -24,6 +24,8 @@ export default function ProductDetailPage() {
   }
 
   return (
-    <ProductDetailView />
+    <div>
+      <ProductDetailView />
+    </div>
   );
 }

@@ -11,6 +11,7 @@ import { Cart } from '../types';
 export default class CartStore {
   cart: Cart | null = null;
 
+  @Action()
   async fetchCart() {
     this.setCart(null);
 

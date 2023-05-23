@@ -1,14 +1,15 @@
+import ComboBox from '../../ui/ComboBox';
+
 import { ProductOption, ProductOptionItem } from '../../../types';
 
-import { ChangeFunction } from './type';
-
-import ComboBox from '../../ui/ComboBox';
+import { ChangeFunction } from './types';
 
 type OptionProps = {
   option: ProductOption;
   selectedItem: ProductOptionItem;
   onChange: ChangeFunction;
 }
+
 export default function Option({
   option, selectedItem, onChange,
 }: OptionProps) {

@@ -6,11 +6,11 @@ import { LineItem } from '../../types';
 
 import numberFormat from '../../utils/numberFormat';
 
-type LineItemProps = {
+type LineItemViewProps = {
   lineItem: LineItem;
-}
+};
 
-export default function LineItemView({ lineItem }: LineItemProps) {
+export default function LineItemView({ lineItem }: LineItemViewProps) {
   return (
     <tr>
       <td>
@@ -19,12 +19,12 @@ export default function LineItemView({ lineItem }: LineItemProps) {
         </Link>
         <Options options={lineItem.options} />
       </td>
-      <td>
+      <td className="price">
         {numberFormat(lineItem.unitPrice)}
         원
       </td>
       <td>{lineItem.quantity}</td>
-      <td>
+      <td className="price">
         {numberFormat(lineItem.totalPrice)}
         원
       </td>

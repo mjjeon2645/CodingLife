@@ -1,6 +1,6 @@
-import { fireEvent, screen } from '@testing-library/react';
+import { screen, fireEvent } from '@testing-library/react';
 
-import { render } from '../../../testHelpers';
+import { render } from '../../../test-helpers';
 
 import SubmitButton from './SubmitButton';
 
@@ -13,9 +13,7 @@ const store = {
   addToCart: jest.fn(),
 };
 
-jest.mock('../../../hooks/useProductFormStore', () => () => (
-  [store, store]
-));
+jest.mock('../../../hooks/useProductFormStore', () => () => [store, store]);
 
 const context = describe;
 
@@ -44,17 +42,17 @@ describe('SubmitButton', () => {
         expect(store.addToCart).toBeCalled();
       });
     });
+  });
 
-    context('when submitting is done', () => {
-      beforeEach(() => {
-        done = true;
-      });
+  context('when submitting is done', () => {
+    beforeEach(() => {
+      done = true;
+    });
 
-      it('renders a done message', () => {
-        render(<SubmitButton />);
+    it('renders a done message', () => {
+      render(<SubmitButton />);
 
-        screen.getByText('장바구니에 담았습니다');
-      });
+      screen.getByText(/장바구니에 담았습니다/);
     });
   });
 });

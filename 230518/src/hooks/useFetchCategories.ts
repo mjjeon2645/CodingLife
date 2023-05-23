@@ -15,7 +15,5 @@ export default function useFetchCategories() {
     store.fetchCategories();
   }, [store]);
 
-  return {
-    categories,
-  };
+  return { categories };
 }

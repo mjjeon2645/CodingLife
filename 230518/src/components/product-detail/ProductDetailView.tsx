@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 
 import Images from './Images';
-import AddToCartForm from './form/AddToCartForm';
 import Description from './Description';
+
+import AddToCartForm from './form/AddToCartForm';
 
 import useProductDetailStore from '../../hooks/useProductDetailStore';
 
@@ -16,6 +17,11 @@ const Container = styled.div`
 
   article {
     width: 60%;
+
+    h2 {
+      margin-bottom: 1rem;
+      font-size: 2rem;
+    }
   }
 `;
 

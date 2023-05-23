@@ -1,6 +1,6 @@
-import useProductFormStore from '../../../hooks/useProductFormStore';
-
 import Button from '../../ui/Button';
+
+import useProductFormStore from '../../../hooks/useProductFormStore';
 
 export default function SubmitButton() {
   const [{ done }, store] = useProductFormStore();

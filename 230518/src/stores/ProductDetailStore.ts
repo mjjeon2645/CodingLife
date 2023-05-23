@@ -15,6 +15,7 @@ export default class ProductDetailStore {
 
   error = false;
 
+  @Action()
   async fetchProduct({ productId }: {
     productId: string;
   }) {
@@ -22,7 +23,6 @@ export default class ProductDetailStore {
 
     try {
       const product = await apiService.fetchProduct({ productId });
-
       this.setProduct(product);
     } catch {
       this.setError();

@@ -19,7 +19,6 @@ export default class ProductFormStore {
 
   done = false;
 
-  @Action()
   async addToCart() {
     this.resetDone();
 
@@ -48,11 +47,9 @@ export default class ProductFormStore {
     if (quantity <= 0) {
       return;
     }
-
     if (quantity > 10) {
       return;
     }
-
     this.quantity = quantity;
   }
 

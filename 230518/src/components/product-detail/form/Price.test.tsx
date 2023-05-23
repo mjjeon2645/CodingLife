@@ -1,6 +1,6 @@
 import { container as iocContainer } from 'tsyringe';
 
-import { render } from '../../../testHelpers';
+import { render } from '../../../test-helpers';
 
 import Price from './Price';
 
@@ -12,23 +12,20 @@ import fixtures from '../../../../fixtures';
 
 const [product] = fixtures.products;
 
-jest.mock('../../../hooks/useProductDetailStore', () => () => [{
-  product,
-}]);
-
 describe('Price', () => {
-  beforeEach(() => {
-    const quantity = 2;
+  const quantity = 2;
 
+  beforeEach(() => {
     const productFormStore = iocContainer.resolve(ProductFormStore);
 
     productFormStore.setProduct(product);
     productFormStore.changeQuantity(quantity);
   });
+
   it('renders price as formatted number', () => {
     const { container } = render(<Price />);
 
-    const price = numberFormat(product.price * 2);
+    const price = numberFormat(product.price * quantity);
 
     expect(container).toHaveTextContent(`${price}원`);
   });

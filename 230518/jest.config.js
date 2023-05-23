@@ -15,8 +15,8 @@ module.exports = {
           react: {
             runtime: 'automatic',
           },
-          // legacyDecorator: true,
-          // decoratorMetadata: true,
+          legacyDecorator: true,
+          decoratorMetadata: true,
         },
       },
     }],
