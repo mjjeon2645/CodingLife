@@ -55,6 +55,14 @@ export type OrderOption = {
   item: OrderOptionItem;
 };
 
+export type OrderSummary = {
+  id: string;
+  title: string;
+  totalPrice: number;
+  status: string;
+  orderedAt: string;
+}
+
 export type LineItem = {
   id: string;
   product: {
@@ -66,6 +74,24 @@ export type LineItem = {
   quantity: number;
   totalPrice: number;
 }
+
+export type OrderDetail = {
+  id: string;
+  title: string;
+  lineItems: LineItem[];
+  totalPrice: number;
+  status: string;
+  orderedAt: string;
+}
+
+export const nullOrderDetail: OrderDetail = {
+  id: '',
+  title: '',
+  lineItems: [],
+  totalPrice: 0,
+  status: '',
+  orderedAt: '',
+};
 
 export type Cart = {
   lineItems: LineItem[];

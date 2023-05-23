@@ -71,6 +71,9 @@ export default function Header() {
           {accessToken ? (
             <>
               <li>
+                <Link to="/orders">Orders</Link>
+              </li>
+              <li>
                 <Link to="/cart">Cart</Link>
               </li>
               <li>
