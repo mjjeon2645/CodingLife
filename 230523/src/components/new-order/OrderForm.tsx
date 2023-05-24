@@ -2,8 +2,10 @@ import styled from 'styled-components';
 
 import Table from '../line-item/Table';
 
-import { Cart } from '../../types';
 import ShippingForm from './ShippingForm';
+import PaymentButton from './PaymentButton';
+
+import { Cart } from '../../types';
 
 const Container = styled.div`
   h2 {
@@ -24,7 +26,7 @@ export default function OrderForm({ cart }: OrderFormProps) {
         totalPrice={cart.totalPrice}
       />
       <ShippingForm />
-      {/* 결제 */}
+      <PaymentButton cart={cart} />
     </Container>
   );
 }

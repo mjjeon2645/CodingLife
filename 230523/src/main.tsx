@@ -16,6 +16,8 @@ import GlobalStyle from './styles/GlobalStyle';
 const router = createBrowserRouter(routes);
 
 function main() {
+  Reflect.get(window, 'IMP').init(process.env.PORTONE_IMP);
+
   const container = document.getElementById('root');
   if (!container) {
     return;
