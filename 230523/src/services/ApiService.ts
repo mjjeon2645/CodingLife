@@ -103,6 +103,22 @@ export default class ApiService {
     });
   }
 
+  async createOrder({ receiver, payment }: {
+    receiver: {
+      name: string;
+      address1: string;
+      address2: string;
+      postalCode: string;
+      phoneNumber: string;
+    };
+    payment: {
+      merchantId: string;
+      transactionId: string;
+    };
+  }): Promise<void> {
+    await this.instance.post('/orders', { receiver, payment });
+  }
+
   async fetchOrders(): Promise<OrderSummary[]> {
     const { data } = await this.instance.get('/orders');
     const { orders } = data;
