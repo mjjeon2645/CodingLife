@@ -6,8 +6,14 @@ import ReactDOM from 'react-dom/client';
 import { Reset } from 'styled-reset';
 import { ThemeProvider } from 'styled-components';
 
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+
+import routes from './routes';
+
 import defaultTheme from './styles/defaultTheme';
 import GlobalStyle from './styles/GlobalStyle';
+
+const router = createBrowserRouter(routes);
 
 export default function main() {
   const element = document.getElementById('root');
@@ -23,9 +29,7 @@ export default function main() {
       <ThemeProvider theme={defaultTheme}>
         <Reset />
         <GlobalStyle />
-        <div>
-          Hello, world!
-        </div>
+        <RouterProvider router={router} />
       </ThemeProvider>
     </React.StrictMode>
   ));
