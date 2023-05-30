@@ -53,6 +53,29 @@ export default class ApiService {
   async logout() {
     await this.instance.delete('/session');
   }
+
+  async createCategory({ name }: {
+    name: string;
+  }): Promise<string> {
+    const { data } = await this.instance.post('/categories', { name });
+    return data.name;
+  }
+
+  async updateCategory({ categoryId, name, hidden }: {
+    categoryId: string;
+    name: string;
+    hidden: boolean;
+  }): Promise<{
+    name: string;
+    hidden: boolean;
+  }> {
+    const { data } = await this.instance.patch(
+      `/categories/${categoryId}`
+      , { name, hidden },
+    );
+
+    return data;
+  }
 }
 
 export const apiService = new ApiService();
