@@ -3,6 +3,14 @@ import 'reflect-metadata';
 
 import '@testing-library/jest-dom';
 
+import server from './mocks/server';
+
+beforeAll(() => server.listen({ onUnhandledRequest: 'error' }));
+
+afterAll(() => server.close());
+
+afterEach(() => server.resetHandlers());
+
 Object.defineProperty(window, 'matchMedia', {
   writable: true,
   value: jest.fn().mockImplementation((query) => ({
