@@ -1,5 +1,7 @@
 Feature('home');
 
-Scenario('test something',  ({ I }) => {
+Scenario('test homepage', ({ I }) => {
+  I.amOnPage('/');
 
+  I.see('Hello, world!');
 });
