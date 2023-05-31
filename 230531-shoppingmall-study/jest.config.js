@@ -9,14 +9,14 @@ module.exports = {
         parser: {
           syntax: 'typescript',
           jsx: true,
-          // decorators: true,
+          decorators: true,
         },
         transform: {
           react: {
             runtime: 'automatic',
           },
-          // legacyDecorator: true,
-          // decoratorMetadata: true,
+          legacyDecorator: true,
+          decoratorMetadata: true,
         },
       },
     }],

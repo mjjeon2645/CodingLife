@@ -13,10 +13,7 @@
     "watch:test": "jest --watchAll",
     "codeceptjs": "codeceptjs run --steps",
     "codeceptjs:headless": "HEADLESS=true codeceptjs run --steps",
-    "codeceptjs:ui": "codecept-ui --app",
-    "codeceptjs:demo": "codeceptjs run --steps -c node_modules/@codeceptjs/examples",
-    "codeceptjs:demo:headless": "HEADLESS=true codeceptjs run --steps -c node_modules/@codeceptjs/examples",
-    "codeceptjs:demo:ui": "codecept-ui --app  -c node_modules/@codeceptjs/examples"
+    "codeceptjs:ui": "codecept-ui --app"
   },
   "keywords": [],
   "author": "",
@@ -26,6 +23,7 @@
     "@codeceptjs/ui": "^0.5.0",
     "@swc/core": "^1.3.61",
     "@swc/jest": "^0.2.26",
+    "@swc/plugin-styled-components": "^1.5.67",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
     "@types/jest": "^29.5.1",
