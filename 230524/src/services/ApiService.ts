@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { Image, ProductOption, ProductSummary } from '../types';
 
 const API_BASE_URL = process.env.API_BASE_URL || 'https://shop-demo-api-04.fly.dev';
 
@@ -76,6 +77,40 @@ export default class ApiService {
 
     return data;
   }
+
+  async updateOrder({ orderId, status }: {
+    orderId: string;
+    status: string;
+  }) {
+    const { data } = await this.instance.patch(`/orders/${orderId}`, { status });
+    return data.status;
+  }
+
+  async createProduct({
+    categoryId, images, name, price, options, description,
+  }: {
+    categoryId: string;
+    images: Image[];
+    name: string;
+    price: number;
+    options: ProductOption[],
+    description: string;
+  }): Promise<ProductSummary> {
+    const { data } = await this.instance.post('/products', {
+      categoryId, images, name, price, options, description,
+    });
+
+    return data;
+  }
+  \
+  async updateProduct({
+    categoryId: categoryId || '',
+    images: Image[];',
+    name: this.name,
+    price: parseInt(this.price, 10),
+    options: this.options,
+    description: this.description,
+  })
 }
 
 export const apiService = new ApiService();

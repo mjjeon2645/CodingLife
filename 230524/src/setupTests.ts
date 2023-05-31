@@ -1,12 +1,13 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import '@testing-library/jest-dom';
 
 import 'reflect-metadata';
 
-beforeAll(() => server.listen({ onUnhandledRequest: 'error' }));
+// beforeAll(() => server.listen({ onUnhandledRequest: 'error' }));
 
-afterAll(() => server.close());
+// afterAll(() => server.close());
 
-afterEach(() => server.resetHandlers());
+// afterEach(() => server.resetHandlers());
 
 Object.defineProperty(window, 'matchMedia', {
   writable: true,
