@@ -2,6 +2,12 @@ import React from 'react';
 
 import ReactDOM from 'react-dom/client';
 
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+
+import routes from './routes';
+
+const router = createBrowserRouter(routes);
+
 export default function main() {
   const element = document.getElementById('root');
 
@@ -13,7 +19,7 @@ export default function main() {
 
   root.render((
     <React.StrictMode>
-      <p>Hello, world!</p>
+      <RouterProvider router={router} />
     </React.StrictMode>
   ));
 }
