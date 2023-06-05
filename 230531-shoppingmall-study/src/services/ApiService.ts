@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { Category, ProductSummary } from '../types';
+import { Category, ProductDetail, ProductSummary } from '../types';
 
 const BASE_URL = process.env.API_BASE_URL || '';
 
@@ -15,8 +15,15 @@ export default class ApiService {
     const { data } = await this.instance.get('/products', {
       params: { categoryId },
     });
-    console.log(data);
     return data.products;
+  }
+
+  async fetchProduct({ productId }: {
+    productId: string;
+  }): Promise<ProductDetail> {
+    const { data } = await this.instance.get(`/products/${productId}`);
+
+    return data;
   }
 
   async fetchCategories(): Promise<Category[]> {

@@ -21,7 +21,7 @@ const Container = styled.header`
     }
 
     .active {
-      color: ${(props) => props.theme.colors.primary}
+      color: ${(props) => props.theme.colors.primary};
     }
   }
 `;

@@ -35,3 +35,13 @@ export type ProductDetail = {
   options: ProductOption[];
   description: string;
 }
+
+export const nullProductDetail = {
+  id: '',
+  category: { id: '', name: '' },
+  images: [],
+  name: '',
+  price: 0,
+  options: [],
+  description: '',
+};
