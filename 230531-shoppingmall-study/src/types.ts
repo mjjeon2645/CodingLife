@@ -45,3 +45,29 @@ export const nullProductDetail = {
   options: [],
   description: '',
 };
+
+export type OrderOptionItem = {
+  name: string;
+}
+
+export type OrderOption = {
+  name: string;
+  item: OrderOptionItem;
+}
+
+export type LineItem = {
+  id: string;
+  product: {
+    id: string;
+    name: string;
+  }
+  options: OrderOption[];
+  unitPrice: number;
+  quantity: number;
+  totalPrice: number;
+}
+
+export type Cart = {
+  lineItems: LineItem[];
+  totalPrice: number;
+}
