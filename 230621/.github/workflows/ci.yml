@@ -1,0 +1,36 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.20.0'
+      - name: Cache node modules
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+      - name: Install dependencies
+        run: npm ci
+      - name: Lint
+        run: npm run lint
+      - name: Check
+        run: npm run check
+      - name: Run unit tests
+        run: npx jest --verbose --coverage
+      - name: Build
+        run: |
+          npm run build
+          mkdir -p out/_next
+          cp -rp .next/static out/_next/
+          rm -rf .next
+          cp public/favicon.ico out/
+      - name: Run E2E tests
+        run: HEADLESS=true npm run test:ci-e2e
